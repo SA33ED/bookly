@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,12 +13,12 @@ class BookDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 30),
+          const SizedBox(height: 10),
           const CustomBookDetailsAppBar(),
           const SizedBox(height: 33.2),
           Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.2),
+                horizontal: MediaQuery.of(context).size.width * 0.24),
             child: const CustomBookImage(),
           ),
           const SizedBox(height: 40),
@@ -36,11 +35,8 @@ class BookDetailsViewBody extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 14),
-          const Row(
+          const BookRatingWidget(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BookRatingWidget(),
-            ],
           ),
         ],
       ),
