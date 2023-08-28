@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_constants.dart';
-import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
