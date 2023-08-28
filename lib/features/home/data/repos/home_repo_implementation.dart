@@ -11,10 +11,22 @@ class HomeRepoImpelementaion implements HomeRepo {
   HomeRepoImpelementaion({required this.apiService});
   @override
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
+    return await getBooks(
+        endpoint:
+            "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming");
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    return await getBooks(
+        endpoint: "volumes?Filtering=free-ebooks&q=subject:Programming");
+  }
+
+  Future<Either<Failure, List<BookModel>>> getBooks(
+      {required String endpoint}) async {
     try {
       Map data = await apiService.get(
-        endpoint:
-            'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming',
+        endpoint: endpoint,
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -28,10 +40,5 @@ class HomeRepoImpelementaion implements HomeRepo {
         return left(ServerFailure(e.toString()));
       }
     }
-  }
-
-  @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    throw UnimplementedError();
   }
 }
