@@ -10,18 +10,21 @@ class HomeRepoImpelementaion implements HomeRepo {
 
   HomeRepoImpelementaion({required this.apiService});
   @override
+//!fetch BestSeller Books
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     return await getBooks(
         endpoint:
             "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming");
   }
 
+//!fetch Featured Books
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     return await getBooks(
         endpoint: "volumes?Filtering=free-ebooks&q=subject:Programming");
   }
 
+//!fetch Books method
   Future<Either<Failure, List<BookModel>>> getBooks(
       {required String endpoint}) async {
     try {
