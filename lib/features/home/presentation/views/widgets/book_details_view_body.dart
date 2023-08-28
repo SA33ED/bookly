@@ -15,7 +15,7 @@ class BookDetailsViewBody extends StatelessWidget {
           CustomBookDetailsAppBar(),
           SizedBox(height: 5),
           BookDetailsSection(),
-          Expanded(child: SizedBox(height: 30)),
+          SizedBox(height: 30),
           SimilarBooksDetails(),
         ],
       ),
