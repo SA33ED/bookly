@@ -31,6 +31,14 @@ class HomeRepoImpelementaion implements HomeRepo {
             "volumes?Filtering=free-ebooks&Sorting=relevance&q=$category");
   }
 
+  //!Search By Title
+  @override
+  Future<Either<Failure, List<BookModel>>> searchByTitle(
+      {required String key}) async {
+    return await getBooks(
+        endpoint: "volumes?Filtering=free-ebooks&q=$key");
+  }
+
 //!fetch Books method
   Future<Either<Failure, List<BookModel>>> getBooks(
       {required String endpoint}) async {
