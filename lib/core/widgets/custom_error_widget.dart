@@ -7,10 +7,24 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      errMessage,
-      style: Styles.textstyle18
-      ,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.error_outline,
+            color: Colors.red,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            errMessage,
+            style: Styles.textstyle18.copyWith(
+              color: Colors.red,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

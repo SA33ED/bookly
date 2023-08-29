@@ -32,7 +32,7 @@ class ServerFailure extends Failure {
         return ServerFailure("Connection Error");
 
       case DioExceptionType.unknown:
-        return ServerFailure("Unknown");
+        return ServerFailure("Opps There was an error");
       default:
         return ServerFailure("Opps There was an error");
     }
