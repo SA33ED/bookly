@@ -8,13 +8,11 @@ import 'package:dio/dio.dart';
 class HomeRepoImpelementaion implements HomeRepo {
   final ApiService apiService;
 
-  HomeRepoImpelementaion( this.apiService);
+  HomeRepoImpelementaion(this.apiService);
   @override
 //!fetch BestSeller Books
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
-    return await getBooks(
-        endpoint:
-            "volumes?q=computer science");
+    return await getBooks(endpoint: "volumes?q=computer science");
   }
 
 //!fetch Featured Books
@@ -22,6 +20,14 @@ class HomeRepoImpelementaion implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     return await getBooks(
         endpoint: "volumes?Filtering=free-ebooks&q=subject:Programming");
+  }
+//!fetch Simmilar Books
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
+    return await getBooks(
+        endpoint:
+            "volumes?Filtering=free-ebooks&Sorting=relevance&q=computer science");
   }
 
 //!fetch Books method
