@@ -39,10 +39,12 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 401) {
-      return ServerFailure(response['error']['mmessage']);
+    if (statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
       return ServerFailure("Your request not found, please try again later!");
+    } else if (statusCode == 400) {
+      return ServerFailure("Not Found");
     } else if (statusCode == 500) {
       return ServerFailure("Internal Server error, please try again later!");
     } else {
