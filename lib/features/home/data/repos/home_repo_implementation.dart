@@ -21,13 +21,14 @@ class HomeRepoImpelementaion implements HomeRepo {
     return await getBooks(
         endpoint: "volumes?Filtering=free-ebooks&q=subject:Programming");
   }
+
 //!fetch Simmilar Books
   @override
   Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
       {required String category}) async {
     return await getBooks(
         endpoint:
-            "volumes?Filtering=free-ebooks&Sorting=relevance&q=computer science");
+            "volumes?Filtering=free-ebooks&Sorting=relevance&q=$category");
   }
 
 //!fetch Books method
