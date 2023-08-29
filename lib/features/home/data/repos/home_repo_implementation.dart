@@ -14,7 +14,7 @@ class HomeRepoImpelementaion implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     return await getBooks(
         endpoint:
-            "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming");
+            "volumes?q=computer science");
   }
 
 //!fetch Featured Books

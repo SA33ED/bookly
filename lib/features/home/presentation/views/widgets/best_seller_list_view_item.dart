@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_constants.dart';
 import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
@@ -19,7 +20,21 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            CustomBookImage(imageUrl: book.volumeInfo!.imageLinks!.thumbnail!),
+            book.volumeInfo!.imageLinks != null
+                ? CustomBookImage(
+                    imageUrl: book.volumeInfo!.imageLinks!.thumbnail!)
+                : AspectRatio(
+                    aspectRatio: 2.7 / 4,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(Assets.imagesBook),
+                        ),
+                      ),
+                    ),
+                  ),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -52,9 +67,9 @@ class BookListViewItem extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                     BookRatingWidget(
-                        rating: book.volumeInfo!.averageRating??0,
-                        count: book.volumeInfo!.ratingsCount??0,
+                      BookRatingWidget(
+                        rating: book.volumeInfo!.averageRating ?? 0,
+                        count: book.volumeInfo!.ratingsCount ?? 0,
                       ),
                     ],
                   )
