@@ -15,7 +15,8 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.24),
           child: const CustomBookImage(
-            imageUrl: "https://images.ctfassets.net/hrltx12pl8hq/3j5RylRv1ZdswxcBaMi0y7/b84fa97296bd2350db6ea194c0dce7db/Music_Icon.jpg",
+            imageUrl:
+                "https://images.ctfassets.net/hrltx12pl8hq/3j5RylRv1ZdswxcBaMi0y7/b84fa97296bd2350db6ea194c0dce7db/Music_Icon.jpg",
           ),
         ),
         const SizedBox(height: 30),
@@ -27,7 +28,11 @@ class BookDetailsSection extends StatelessWidget {
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500)),
         const SizedBox(height: 14),
-        const BookRatingWidget(mainAxisAlignment: MainAxisAlignment.center),
+        const BookRatingWidget(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: 5,
+          count: 6,
+        ),
         const SizedBox(height: 37),
         const BooksActions(),
       ],
